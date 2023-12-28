@@ -1,31 +1,31 @@
 ###
 #
-#  Sorting the integer arguments (ascending) 
+#  Sorting thw integer arguments (ascending)
 #
 ###
 
-res = []
+result = []
 ARGV.each do |arg|
-    # skipping non_integer
+    # skip if not integer
     next if arg !~ /^-?[0-9]+$/
 
-    # converting to integer
+    # convert to integer
     i_arg = arg.to_i
 
-    # result at the right position
-    _inserted = false
+    # insert result at the right position
+    is_inserted = false
     a = 0
-    i = res.size
-    while !_inserted && a < i do
-        if result[i] < i_arg
+    l = result.size
+    while !is_inserted && a < l do
+        if result[a] < i_arg
             a += 1
         else
-            res.insert(a, i_arg)
-            _inserted = true
+            result.insert(a, i_arg)
+            is_inserted = true
             break
         end
     end
-    res << i_arg if !_inserted
+    result << i_arg if !is_inserted
 end
 
-puts res
+puts result
